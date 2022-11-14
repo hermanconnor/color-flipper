@@ -3,8 +3,8 @@ const initApp = () => {
   const color = document.getElementById('color');
 
   btn.addEventListener('click', () => {
-    document.body.style.backgroundColor = getRGB();
-    color.innerText = getRGB();
+    document.body.style.backgroundColor = getHSL();
+    color.innerText = getHSL();
   });
 };
 
@@ -15,6 +15,6 @@ const randNum = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-const getRGB = () => {
-  return `rgb(${randNum(0, 255)}, ${randNum(0, 255)}, ${randNum(0, 255)})`;
+const getHSL = () => {
+  return `hsl(${randNum(0, 360)}, ${randNum(0, 100)}%, ${randNum(0, 100)}%)`;
 };
