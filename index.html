@@ -8,5 +8,88 @@
     <script defer src="js/script.js"></script>
     <title>Color Flipper</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <div>
+        <div>
+          <span>Color Flipper</span>
+        </div>
+
+        <nav>
+          <ul class="tabs">
+            <li>
+              <button
+                class="tab-btn active"
+                data-format="hex"
+                aria-label="Switch to HEX format"
+              >
+                HEX
+              </button>
+            </li>
+            <li>
+              <button
+                class="tab-btn"
+                data-format="rgb"
+                aria-label="Switch to RGB format"
+              >
+                RGB
+              </button>
+            </li>
+            <li>
+              <button
+                class="tab-btn"
+                data-format="hsl"
+                aria-label="Switch to HSL format"
+              >
+                HSL
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="container">
+        <!-- Card -->
+        <div class="card">
+          <h1>Color Flipper</h1>
+
+          <!-- Display -->
+          <div class="color-display">
+            <p id="color-code">#6D28D9</p>
+            <button id="copy-btn" aria-label="Copy color code">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path
+                  d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                ></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Generate Button -->
+          <button id="generate-btn" type="button">Generate Color</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Toast -->
+    <div id="toast" class="toast" role="alert">
+      <div class="toast-content">
+        <p id="toast-message">Color copied to clipboard!</p>
+      </div>
+    </div>
+  </body>
 </html>
