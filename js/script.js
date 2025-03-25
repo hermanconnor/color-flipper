@@ -62,6 +62,25 @@ document.addEventListener('DOMContentLoaded', () => {
     colorCode.textContent = color;
   }
 
+  function showToast(message) {
+    toastMessage.textContent = message;
+    toast.classList.add('show');
+
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 3000);
+  }
+
+  async function copyToClipboard() {
+    try {
+      await navigator.clipboard.writeText(currentColor);
+      showToast(`${currentColor} copied to clipboard!`);
+    } catch (err) {
+      showToast('Failed to copy. Please try again.');
+      console.error('Failed to copy: ', err);
+    }
+  }
+
   // EVENT LISTENERS
   tabsContainer.addEventListener('click', (e) => {
     const target = e.target;
@@ -78,8 +97,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  copyBtn.addEventListener('click', copyToClipboard);
+
   generateBtn.addEventListener('click', () => {
     const newColor = generateColor();
     updateColor(newColor);
+  });
+
+  // KEYBOARD ACCESSIBILITY
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && document.activeElement === generateBtn) {
+      const newColor = generateColor();
+      updateColor(newColor);
+    }
+
+    if (e.key === 'Enter' && document.activeElement === copyBtn) {
+      copyToClipboard();
+    }
   });
 });
