@@ -19,7 +19,7 @@ Welcome to **Color Flipper**! A fun and interactive web app that lets you genera
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/color-flipper.git
+   git clone https://github.com/hermanconnor/color-flipper.git
    ```
 2. Open the project in your preferred text editor.
 
